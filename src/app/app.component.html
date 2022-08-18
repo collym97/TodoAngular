@@ -1,0 +1,32 @@
+Todo angular
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<h3 class="text-center">Todo</h3>
+<div class="d-flex justify-content-center">
+
+  <input type="text" required [(ngModel)]="name">
+  <button button type="button" class="btn btn-primary" [disabled]="name === '' || tareas.length >=11"
+    (click)="addName()">Add task</button>
+</div>
+
+<div class="d-flex justify-content-center">
+
+
+  <ul>
+    <li *ngIf="tareas.length >= 11 " mensaje()></li>
+    <li *ngIf="tareas.length === 0">Debes agregar una tarea</li>
+    <li *ngFor="let name of tareas; index as i">
+      <div class="d-flex justify-content-between">
+        {{name}}
+        <button button type=" button" class="p-2 btn btn-danger " (click)="deleteName(i)">delete</button>
+      </div>
+
+    </li>
+  </ul>
+
+</div>
